@@ -1,0 +1,2 @@
+# FinanceApp
+Bandomasis app.
