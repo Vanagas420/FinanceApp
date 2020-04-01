@@ -1,6 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, ImageBackground, Image } from 'react-native';
+import { Button} from 'react-native-elements';
 import firebaseSDK from '../config/firebaseSDK';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class Login extends React.Component {
 	static navigationOptions = {
@@ -9,8 +11,8 @@ export default class Login extends React.Component {
 
 	state = {
 		name: '',
-		email: '',
-		password: '',
+		email: 'Email',
+		password: 'Password',
 		avatar: ''
 	};
 
@@ -47,52 +49,112 @@ export default class Login extends React.Component {
 
 	render() {
 		return (
-			<View>
-				<Text style={styles.title}>Email:</Text>
+			<ImageBackground source={require('../assets/lai.jpeg')} style={styles.container}>
+				
+				<Image source={require('../assets/logo.png')} style={styles.bigLogo} ></Image>
+				<Text style={styles.logo}>FinalProject</Text>
+				<View style={styles.inputView}>
 				<TextInput
-					style={styles.nameInput}
-					placeHolder="test3@gmail.com"
+					placeHolder="email..."
+					style={styles.inputText}
+					placeholderTextColor="black"
 					onChangeText={this.onChangeTextEmail}
 					value={this.state.email}
-				/>
-				<Text style={styles.title}>Password:</Text>
+					
+				/>	
+				</View>	
+				<View style={styles.inputView} >
 				<TextInput
-					style={styles.nameInput}
+					style={styles.inputText}
+					placeHolder="password..."
+					placeholderTextColor="white"
 					onChangeText={this.onChangeTextPassword}
 					value={this.state.password}
 				/>
-				<Button
-					title="Login"
-					style={styles.buttonText}
-					onPress={this.onPressLogin}
-				/>
+				 </View>
+				 	<TouchableOpacity>
+          			<Text style={styles.forgot}>Forgot Password?</Text>
+       				</TouchableOpacity>
+					   <Button
+              title="Log in"
+              buttonStyle={{
+                backgroundColor:  "white",
+                borderRadius: 25,
+              }}
+              titleStyle={{ color: "black", fontWeight: 'bold', fontSize: 23 }}
+              containerStyle={{ marginVertical: 10, height: 50, width: 230 }}
+              onPress={this.onPressLogin}
+
+            />
 
 				<Button
-					title="Signup"
-					style={styles.buttonText}
+					title="Sign up"
+              		buttonStyle={{
+                	backgroundColor: "white",
+               		borderRadius: 25,
+              		}}
+             		titleStyle={{ color: "black", fontWeight: 'bold', fontSize: 23 }}
+             		containerStyle={{ marginVertical: 10, height: 50, width: 230 }}
 					onPress={() => this.props.navigation.navigate('Signup')}
 				/>
-			</View>
+			</ImageBackground>
 		);
 	}
 }
 
+
 const styles = StyleSheet.create({
-	title: {
-		marginTop: 16,
-		marginLeft: 16,
-		fontSize: 16
+	dot:{
+		width: 110, 
+		height: 110, 
+		borderRadius: 200, 
+		backgroundColor: 'white',
+  		top: 85
 	},
-	nameInput: {
-		height: 16 * 2,
-		margin: 16,
-		paddingHorizontal: 16,
-		borderColor: '#111111',
-		borderWidth: 1,
-		fontSize: 16
+	container: {
+	  flex: 1,
+	 
+	  alignItems: 'center',
+	  justifyContent: 'center',
 	},
-	buttonText: {
-		marginLeft: 16,
-		fontSize: 42
-	}
-});
+	logo:{
+		fontWeight:"bold",
+		fontSize:50,
+		color:"white",
+		marginBottom:40,
+		top: -50
+		/* 
+		backgroundColor: "black",
+	  borderLeftWidth: 40 ,
+	  borderRightWidth: 40 ,	 */ 
+	},
+	inputView:{
+	  width:"80%",
+	  backgroundColor: "white",
+	  borderRadius:25,
+	  height:40,
+	  marginBottom:20,
+	  justifyContent:"center",
+	  padding:1
+	},
+	inputText:{
+	 fontWeight: 'bold',
+	  height:20,
+	  marginBottom: -10,
+	  color:"black",
+	  textAlign:'center'
+	},
+	forgot:{
+	  color:"white",
+	  fontSize:11
+	},
+	tinyLogo: {
+		width: 50,
+		height: 50,
+	  },
+	bigLogo: {
+		width: 88,
+		height: 150,
+		top: -40
+	  },
+  });
