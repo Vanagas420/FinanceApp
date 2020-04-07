@@ -73,7 +73,8 @@ export default class Login extends React.Component {
 				/>
 				 </View>
 				 	<TouchableOpacity>
-          			<Text style={styles.forgot}>Forgot Password?</Text>
+          			<Text style={styles.forgot} >
+						  Forgot Password?</Text>
        				</TouchableOpacity>
 					   <Button
               title="Log in"
@@ -101,7 +102,6 @@ export default class Login extends React.Component {
 		);
 	}
 }
-
 
 const styles = StyleSheet.create({
 	dot:{
