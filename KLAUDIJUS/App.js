@@ -35,7 +35,9 @@ const App = () => {
           headerStyle: { 
             backgroundColor: '#f4511e'
           },
+         
         }}
+
         />
         <Stack.Screen name="SecondScreen" component={SecondScreen} 
         options={{ 
@@ -45,6 +47,7 @@ const App = () => {
           headerStyle: { 
             backgroundColor: '#f4511e'
           },
+          
         }} />
       </Stack.Navigator>
     </NavigationContainer>
