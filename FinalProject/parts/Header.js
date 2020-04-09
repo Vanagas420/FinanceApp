@@ -1,7 +1,8 @@
 import React from 'react';
 import {View, Text, StyleSheet, Input} from 'react-native';
 
-export default function Header(){
+export default class Header extends Component {
+    render() {
     return(
         <View>
             <View>
@@ -12,4 +13,5 @@ export default function Header(){
             </View>
         </View>
     )
+}
 }
